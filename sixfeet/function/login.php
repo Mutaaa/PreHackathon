@@ -11,16 +11,30 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM users WHERE username='" . $_POST['username'] . "' AND password='" .$_POST['password']. "'" ;
+$options = [
+    'cost' => 11,
+];
+// Get the password from post
+$passwordFromPost = $_POST['password'];
+
+$sql = "SELECT * FROM users WHERE username='" . $_POST['username'] ."'";
 $result = $conn->query($sql);
+
+$check = 0;
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br> id: ". $row["first_name"]. " - Name: ". $row["last_name"]. " " . $row["email"] . "<br>";
+      if(password_verify($passwordFromPost, $row['password'])){
+        echo "pass";
+        $check++;
+      }
+    }
+    if( $check == 0 ) {
+      echo "wrong password naja";
     }
 } else {
-    echo "0 results";
+    echo "no username found";
 }
 
 $conn->close();

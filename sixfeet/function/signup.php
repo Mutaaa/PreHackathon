@@ -18,9 +18,16 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $con_password = $_POST['confirm_password'];
 
+$options = [
+    'cost' => 11,
+];
+// Get the password from post
+$passwordFromPost = $_POST['password'];
+
+$hash = password_hash($passwordFromPost, PASSWORD_BCRYPT, $options);
 
 $sql = "INSERT INTO users (username, first_name, last_name, email, password)
-VALUES ('$username','$first_name', '$last_name', '$email', '$password')";
+VALUES ('$username','$first_name', '$last_name', '$email', '$hash')";
 
 if ($conn->query($sql) === TRUE && $con_password == $password) {
     echo "New record created successfully";
