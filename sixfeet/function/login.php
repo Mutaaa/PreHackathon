@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "mysql.ilab.sit.kmutt.ac.th";
 $username = "std60130500217";
 $password = "LptX2386";
@@ -26,12 +27,13 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
       if(password_verify($passwordFromPost, $row['password'])){
+        $_SESSION["username"] = $_POST['username'];
         echo "pass";
         $check++;
       }
     }
     if( $check == 0 ) {
-      echo "wrong password naja";
+      echo "wrong password";
     }
 } else {
     echo "no username found";
