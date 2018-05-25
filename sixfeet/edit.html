@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello, World</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--  jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet" href="css/edit.css">
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+
+</head>
+<body>
+  <h1> Hello, World. You can edit your profile here. </h1>
+  <div class="well">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
+        <li><a href="#profile" data-toggle="tab">Password</a></li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active in" id="home">
+          <form id="tab">
+              <label>Username</label>
+              <input type="text" value="Kornkanok" class="input-xlarge"><br>
+              <label>First Name</label>
+              <input type="text" value="Kornkanok" class="input-xlarge"><br>
+              <label>Last Name</label>
+              <input type="text" value="Sangwichien" class="input-xlarge"><br>
+              <label for="sel1">Gender</label>
+                <select class="form-control" id="sel1">
+                  <option>Female</option>
+                  <option>Male</option>
+                </select>
+              <label>Department</label>
+              <input type="text" value="Computer Science" class="input-xlarge"><br>
+              <label>Email</label>
+              <input type="text" value="email@email.com" class="input-xlarge"><br>
+
+              <div class="form-group"> <!-- Date input -->
+                <label class="control-label" for="date">Date of Birth</label>
+                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+              </div>
+
+              <div>
+                  <button class="btn btn-primary">Update</button>
+              </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="profile">
+      	<form id="tab2">
+          	<label>New Password</label>
+          	<input type="password" class="input-xlarge">
+          	<div>
+          	    <button class="btn btn-primary">Update</button>
+          	</div>
+      	</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
