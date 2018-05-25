@@ -3,7 +3,7 @@ body {
   background: #d47677;
 }
 .form-control {
-      min-height: 41px;
+  min-height: 41px;
   background: #fff;
   box-shadow: none !important;
   border-color: #e3e3e3;
